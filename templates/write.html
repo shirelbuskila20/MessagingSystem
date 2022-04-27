@@ -1,0 +1,83 @@
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+<div class="container">
+    <style>
+    input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+    input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+    background-color: #45a049;
+    }
+
+    div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    }
+    </style>
+
+  <form id="post-form">
+    {% csrf_token %}
+    <input type="hidden" name="username" id="username" value="{{username}}"/>
+    <label>to:</label>
+    <input type="text" name="receiver" id="receiver" width="100px" />
+    <label>subject:</label>
+    <input type="text" name="subject" id="subject" width="100px" />
+    <label>message:</label>
+    <input type="text" name="message" id="message" width="100px" />
+  
+    <input type="submit" value="send">
+  </form>
+</div>
+
+
+</body>
+
+<script type="text/javascript">
+  $(document).on('submit','#post-form',function(e){
+    e.preventDefault();
+
+    $.ajax({
+      type:'POST',
+      url:'/sendMessage',
+      data:{
+        username:$('#username').val(),
+        receiver:$('#receiver').val(),
+        subject:$('#subject').val(),
+        message:$('#message').val(),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+      },
+      success: function(data){
+         alert(data)
+      }
+    });
+    document.getElementById('receiver').value = ''
+    document.getElementById('subject').value = ''
+    document.getElementById('message').value = ''
+  });
+</script>
+
+
+<form method="post" action="dashboard/username='+{{username}}+'/">
+  {% csrf_token %}
+
+  <input type="submit" value="back to dashboard">
+</form>
