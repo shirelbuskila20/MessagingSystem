@@ -14,25 +14,25 @@ get messages API you will only get the messages for the current logged in user.
 
 
 # requests:
--register -registration to the system, the users are registered in the database Users.
+- register -registration to the system, the users are registered in the database Users.
 
--login -registration to the system. The system checks whether the users are registered in the database users.
+- login -registration to the system. The system checks whether the users are registered in the database users.
 
--dashboard - the options are displayed - writing messages, reading messages and reading new messages
+- dashboard - the options are displayed - writing messages, reading messages and reading new messages
 
--write - writing messages
+- write - writing messages
 
--getMessagesall - get all messages from the database
+- getMessagesall - get all messages from the database
 
--readall -reading all messages
+- readall -reading all messages
 
--getMessagesnew - get all new messages from the database
+- getMessagesnew - get all new messages from the database
 
--readnew-reading all new messages
+- readnew-reading all new messages
 
--sendMessage - sending messages and registering them in a database
+- sendMessage - sending messages and registering them in a database
 
--cleannew - move the new messages to the read messages box
+- cleannew - move the new messages to the read messages box
 
 
 # authentication tokens
