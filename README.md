@@ -37,7 +37,9 @@ get messages API you will only get the messages for the current logged in user.
 
 # authentication tokens
 username: admin
+
 mail: admin@gmail.com
+
 password: 1234
 
 
