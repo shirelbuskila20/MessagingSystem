@@ -107,18 +107,17 @@ body {
     }
     </style>
 
-    <form  method="POST" action="write">
+    <form  method="POST" action="write messages">
         {% csrf_token %}
         <input type="submit" value="write">
     </form>
     <form  method="POST" action="readall">
         {% csrf_token %}
-        <input type="hidden" name="username" value="{{username}}">
-        <input type="submit" value="read">
+        <input type="submit" value="read all messages">
     </form>
     <form  method="POST" action="readnew">
         {% csrf_token %}
-        <input type="submit" value="new read">
+        <input type="submit" value="read all new messages">
     </form>
 </div>
 
